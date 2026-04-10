@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!-- 
+    ЗАВДАННЯ 1 | Крок 4 | Створення заготовок інших сторінок
+    ===============================================================================
+    Файл: contact.html (Контакти та форма зв'язку)
+    
+    МЕТА: Сторінка для зв'язку з адміністрацією та фанатами
+    АКТИВНЕ ПОСИЛАННЯ: Connect
+-->
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Eras Vault | Зв'язок</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">The Eras Vault</div>
+        <nav>
+            <a href="index.html">Домашня</a>
+            <a href="discography.html">Дискографія</a>
+            <a href="about.html">Про Тейлор</a>
+            <a href="blog.html">Новини</a>
+            <a href="tours.html">Тури</a>
+            <a href="gallery.html">Галерея</a>
+            <a href="lyrics.html">Тексти</a>
+            <a href="contact.html" class="active">Зв'язок</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="content">
+            <h1>Зв'яжіться з нами</h1>
+            <p>Маєте питання, пропозиції або хочете поділитися своїм улюбленим моментом Тейлор Свіфт? Ми будемо раді почути від вас! Заповніть контактну форму нижче або зв'яжіться через наші соціальні мережі.</p>
+            <div class="contact-wrapper">
+                <h2>Залишайтеся на зв'язку</h2>
+                <form class="vault-form">
+                    <div class="input-group">
+                        <label for="name">Ваше Ім'я</label>
+                        <input type="text" id="name" placeholder="Наприклад, Влад">
+                    </div>
+                    <div class="input-group">
+                        <label for="favorite-era">Улюблена Ера</label>
+                        <input type="text" id="favorite-era" placeholder="Наприклад, Reputation">
+                    </div>
+                    <div class="input-group">
+                        <label for="message">Повідомлення</label>
+                        <textarea id="message" rows="5" placeholder="Розкажіть про свій улюблений момент..."></textarea>
+                    </div>
+                    <button type="button" class="btn-gold">Надіслати Повідомлення</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 The Eras Vault | Створено для Свіфті</p>
+    </footer>
+</body>
+</html>

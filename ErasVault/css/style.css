@@ -1,0 +1,1238 @@
+/* 
+   ЗАВДАННЯ 1 | Крок 3 | Оформлення зовнішньої таблиці стилів (css/style.css)
+   ===============================================================================
+   Файл: css/style.css
+   
+   МЕТА: Трансформувати базовий HTML у візуально привабливий сайт завдяки CSS.
+         Використовуємо темну схему кольорів у стилі TTPD та Midnights.
+   
+   КЛЮЧОВІ КОНЦЕПЦІЇ:
+   1. Селектори: Точно вказуємо, до каких елементів застосовуємо стилі
+   2. Псевдокласи: :hover (наведення), :active (натискання)
+   3. Типографіка: text-transform, letter-spacing, text-indent
+   4. Глибока темна палітра для "поетичного" настрою
+*/
+
+/* ========================================
+   3.1 БАЗОВІ СТИЛІ ТА ШРИФТИ
+   ======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* 1. Вказуємо шлях до фото та накладаємо затемнення (0.8 — це 80% чорного) */
+    background: linear-gradient(rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.8)), 
+                url('https://wallpaperaccess.com/full/8713730.jpg');
+    
+    /* 2. Налаштування відображення */
+    background-size: cover;          /* Фото розтягується на весь екран  */
+    background-position: center;     /* Центруємо зображення  */
+    background-repeat: no-repeat;    /* Забороняємо дублювання  */
+    background-attachment: fixed;   /* Фото не рухається при скролі [cite: 1605, 1665] */
+    
+    /* 3. Базові налаштування тексту */
+    font-family: var(--font-serif, "Georgia", serif);
+    font-size: 16px;
+    color: #E0E0E0;
+    
+    /* Скидаємо стандартні margin/padding */
+    margin: 0;
+    padding: 0;
+    
+    /* Гнучкість для правильного укладення footer внизу */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    
+    /* Плавні переходи для всіх елементів */
+    line-height: 1.6;
+}
+
+/* Стилізація всіх заголовків */
+h1, h2, h3 {
+    /* Нормальна вага (не жирна) для елегантності */
+    font-weight: normal;
+    
+    /* Білий колір для контрасту */
+    color: #FFFFFF;
+    
+    /* Збільшений інтервал між літерами (letter-spacing) */
+    letter-spacing: 2px;
+    
+    /* Трохи збільшена висота рядка */
+    line-height: 1.8;
+}
+
+/* ========================================
+   3.2 СТИЛІЗАЦІЯ НАВІГАЦІЙНОГО МЕНЮ З ЕФЕКТАМИ
+   ======================================== */
+
+header {
+    /* Чорний фон для контрасту */
+    background-color: #0A0A0A;
+    
+    /* Простір довкола контенту */
+    padding: 20px;
+    
+    /* Вирівнювання по центру */
+    text-align: center;
+    
+    /* Легка тінь для глибини */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    
+    /* Гнучкий контейнер для правильного розташування */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+/* ЛОГОТИП - основна назва сайту */
+.logo {
+    /* Великий розмір для видимості */
+    font-size: 28px;
+    
+    /* Відступ знизу від меню */
+    margin-bottom: 15px;
+    
+    /* ТРАНСФОРМАЦІЯ ТЕКСТУ: перетворення на великі букви */
+    text-transform: uppercase;
+    
+    /* LETTER-SPACING: широкий інтервал для елегантності */
+    letter-spacing: 4px;
+    
+    /* Золотий колір (натхнення епохою Fearless) */
+    color: #D4A843;
+    
+    /* Дефіс для меж */
+    font-weight: normal;
+}
+
+/* НАВІГАЦІЙНІ ПОСИЛАННЯ */
+nav {
+    /* Розташування посилань в ряд */
+    display: flex;
+    gap: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+nav a {
+    /* Прибираємо стандартне підкреслення */
+    text-decoration: none;
+    
+    /* Світло-сірий колір */
+    color: #B0B0B0;
+    
+    /* Простір довкола тексту */
+    padding: 10px 15px;
+    margin: 0 5px;
+    
+    /* Контрастний шрифт для меню (без засічок) */
+    font-family: "Open Sans", Arial, sans-serif;
+    font-size: 14px;
+    
+    /* ТРАНСФОРМАЦІЯ ТЕКСТУ: великі букви для меню */
+    text-transform: uppercase;
+    
+    /* ПСЕВДОКЛАСИ: плавна зміна при взаємодії */
+    transition: all 0.3s ease;
+    
+    /* Зберігаємо межу для :hover стану */
+    border-bottom: 2px solid transparent;
+}
+
+/* ПСЕВДОКЛАСС :hover - наведення миші */
+nav a:hover {
+    /* ЗМІНА КОЛЬОРУ: золотий при наведенні */
+    color: #D4A843;
+    
+    /* Золота межа знизу */
+    border-bottom: 2px solid #D4A843;
+    
+    /* Легкий ефект піднімання */
+    transform: translateY(-2px);
+}
+
+/* ПСЕВДОКЛАСС :active - момент натискання */
+nav a:active {
+    /* Білий колір при натисканні */
+    color: #FFFFFF;
+}
+
+/* АКТИВНА СТОРІНКА - постійне виділення */
+nav a.active {
+    /* Золотий текст */
+    color: #D4A843;
+    
+    /* Золота межа для позначення активної сторінки */
+    border-bottom: 2px solid #D4A843;
+    
+    /* Без замутнення */
+    font-weight: normal;
+}
+
+/* ========================================
+   3.3 ТА 3.4 ОФОРМЛЕННЯ МАКЕТА ТА ТЕКСТУ
+   ======================================== */
+
+main {
+    /* Внутрішній простір */
+    padding: 40px;
+    
+    /* Максимальна ширина для читаємості */
+    max-width: 800px;
+    
+    /* Центровка на сторінці */
+    margin: 2rem auto;
+    
+    /* Дозволити main розширятися для footer */
+    flex: 1;
+    
+    /* Білий фон для контрасту */
+    background-color: #1A1A1A;
+    
+    /* Легка тінь для объема */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* HERO СЕКЦІЯ - привітальний блок */
+#hero {
+    /* Вирівнювання основного тексту */
+    text-align: justify;
+}
+
+#hero h1 {
+    /* Золотий колір для заголовка */
+    color: #D4A843;
+    
+    /* Збільшена вага букв */
+    font-size: 2.2rem;
+    
+    /* Відступ знизу */
+    margin-bottom: 1.5rem;
+}
+
+#hero > p {
+    /* Світлий сірий для основного тексту */
+    color: #CCCCCC;
+    
+    /* Досить великий розмір """
+    font-size: 1.1rem;
+    
+    /* Відступ знизу */
+    margin-bottom: 1.5rem;
+    
+    /* Вирівнювання тексту по ширині */
+    text-align: justify;
+}
+
+/* ДОДАТКОВИЙ ВСТУПНИЙ ТЕКСТ */
+.intro-text {
+    /* Трохи світліший фон */
+    background-color: #292929;
+    
+    /* Розмір контенту */
+    padding: 20px;
+    
+    /* Межа для відділення */
+    border-left: 4px solid #D4A843;
+    
+    /* Відступ від креслення */
+    margin-top: 1.5rem;
+    
+    /* Закруглені углы */
+    border-radius: 4px;
+}
+
+.intro-text p {
+    /* TEXT-INDENT: відступ першого рядка */
+    text-indent: 1.5em;
+    
+    /* Правильна висота рядка для читаємості */
+    line-height: 1.6;
+    
+    /* Світлий текст */
+    color: #CCCCCC;
+    
+    /* Простий розмір */
+    font-size: 1rem;
+}
+
+/* ========================================
+   3.5 ГРУПУВАННЯ ЧЕРЕЗ SPAN ТА DIV
+   (БІЧНА ПАНЕЛЬ ТА ПІДВАЛ)
+   ======================================== */
+
+aside {
+    /* Темний, але світліший, ніж main */
+    background-color: #1A1A1A;
+    
+    /* Простір довкола */
+    padding: 20px;
+    
+    /* Центровка */
+    margin: 20px auto;
+    max-width: 800px;
+    
+    /* Вирівнювання */
+    text-align: center;
+    
+    /* Межа для відділення */
+    border: 1px solid #333;
+    
+    /* Закруглення углов */
+    border-radius: 4px;
+}
+
+aside h2 {
+    /* Золотий колір для заголовка */
+    color: #D4A843;
+    
+    /* Відступ знизу */
+    margin-bottom: 1rem;
+}
+
+aside p {
+    /* Світлий сірий текст */
+    color: #CCCCCC;
+    
+    /* Відступ знизу */
+    margin-bottom: 1rem;
+}
+
+/* КОНТЕЙНЕР ШВИДКИХ ПОСИЛАНЬ */
+.quick-links {
+    /* Розташування тегів в ряд */
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+    /* Простір зверху */
+    margin-top: 1rem;
+}
+
+/* ТЕГИ - стилізація окремих фрагментів */
+.tag {
+    /* Темний фон */
+    background-color: #333;
+    
+    /* Золотий текст */
+    color: #D4A843;
+    
+    /* Внутрішній простір */
+    padding: 5px 10px;
+    
+    /* Спеціальні межа */
+    margin: 0 5px;
+    
+    /* Маленький розмір шрифту */
+    font-size: 12px;
+    
+    /* ТРАНСФОРМАЦІЯ: великі букви */
+    text-transform: uppercase;
+    
+    /* Закруглення углов для м'якості */
+    border-radius: 3px;
+    
+    /* Плавна зміна при наведенні */
+    transition: all 0.3s ease;
+    
+    /* Стиль курсору */
+    cursor: pointer;
+}
+
+/* ТЕГ при наведенні */
+.tag:hover {
+    /* Насичений золотий */
+    background-color: #D4A843;
+    
+    /* Чорний текст для контрасту */
+    color: #0A0A0A;
+    
+    /* Ефект масштабування */
+    transform: scale(1.1);
+}
+
+/* ========================================
+   3.6 ОФОРМЛЕННЯ ПІДВАЛА (FOOTER)
+   ======================================== */
+
+footer {
+    /* Вирівнювання по центру */
+    text-align: center;
+    
+    /* Простір довкола */
+    padding: 20px;
+    
+    /* Чорний фон, як header */
+    background-color: #0A0A0A;
+    
+    /* Маленький розмір шрифту */
+    font-size: 12px;
+    
+    /* Сірий текст */
+    color: #666;
+    
+    /* Тінь зверху для відділення */
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.5);
+    
+    /* Спеціальний простір для поділу від контенту */
+    margin-top: auto;
+}
+
+footer p {
+    /* Скидуємо margin */
+    margin: 0;
+}
+
+/* ========================================
+   3.7 СТИЛІ СІТКИ КАРТОК (GALLERY)
+   ЗАВДАННЯ 2 | Крок 2 | Overlay-ефект на картках
+   ======================================== */
+
+/* БАЗОВА СІТКА ДЛЯ КАРТОК */
+.gallery-container {
+    /* Флекс контейнер */
+    display: flex;
+    gap: 30px;
+    margin-top: 40px;
+    justify-content: center;
+    
+    /* Обгортання на мобільних */
+    flex-wrap: wrap;
+}
+
+/* =========================================
+   АНІМАЦІЯ КАРТОК (transform + transition)
+   ========================================= */
+
+.era-card {
+    /* Фіксована ширина kartky */
+    width: 300px;
+    
+    /* Темний фон */
+    background-color: #1A1A1A;
+    
+    /* Скруглені кути */
+    border-radius: 8px;
+    
+    /* База для overlay позиціонування */
+    position: relative;
+    
+    /* TRANSITION: плавність для усіх змін */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    /* Переповнювання приховано */
+    overflow: hidden;
+}
+
+/* При наведенні картка піднімається (translateY) та отримує тінь */
+.era-card:hover {
+    /* TRANSFORM: піднімання картки на 10px вгору */
+    transform: translateY(-10px);
+    
+    /* Золота тінь для ефекту об'єму */
+    box-shadow: 0 10px 30px rgba(212, 168, 67, 0.15);
+}
+
+/* ========================================
+   ОБЛАСТЬ ЗОБРАЖЕННЯ
+   ======================================== */
+
+.card-image {
+    /* Позиціоноване (база для overlay) */
+    position: relative;
+    
+    /* Переповнювання приховано */
+    overflow: hidden;
+    
+    /* Висота зображення */
+    height: 300px;
+    
+    /* Скруглені верхні кути */
+    border-radius: 8px 8px 0 0;
+}
+
+/* ЗАПОВНЮВАЧ ЗОБРАЖЕННЯ */
+.placeholder-img {
+    /* Заповнити всю область */
+    width: 100%;
+    height: 100%;
+    
+    /* Центровка мітки */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Шрифт */
+    font-family: "Open Sans", sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    
+    /* Колір тексту */
+    color: #333;
+}
+
+/* =========================================
+   ЗАЛМПРОЗОРИЙ OVERLAY (position + opacity)
+   =========================================*/
+
+.overlay {
+    /* Позиціоноване абсолютно поверх зображення */
+    position: absolute;
+    
+    /* Покривання всієї області картинки */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Темний фон TTPD з прозорістю 90% */
+    background: rgba(18, 18, 18, 0.9);
+    
+    /* OPACITY: Приховано за замовчуванням */
+    opacity: 0;
+    
+    /* TRANSITION: плавна поява при наведенні */
+    transition: opacity 0.4s ease;
+    
+    /* Центровка вмісту */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    /* Простір внутрішньо */
+    padding: 20px;
+    box-sizing: border-box;
+    
+    /* Вирівнювання тексту */
+    text-align: center;
+}
+
+/* При наведенні на картку показуємо overlay */
+.era-card:hover .overlay {
+    /* Показати оверлей (прозорість = 1) */
+    opacity: 1;
+}
+
+/* ========================================
+   ІНФОРМАЦІЯ ПРО КАРТКУ
+   ======================================== */
+
+.card-body {
+    /* Простір внутрішньо */
+    padding: 15px;
+    
+    /* Вирівнювання по центру */
+    text-align: center;
+}
+
+/* РІК ВИХОДУ АЛЬБОМУ */
+.year {
+    /* Золотий колір */
+    color: #D4A843;
+    
+    /* Маленький розмір */
+    font-size: 12px;
+}
+
+/* Опис у overlay */
+.overlay p {
+    /* Світлий текст */
+    color: #CCCCCC;
+    
+    /* Розмір */
+    font-size: 0.95rem;
+    
+    /* Висота рядка */
+    line-height: 1.5;
+    
+    /* Відступ від кнопки */
+    margin-bottom: 1.5rem;
+}
+
+/* Кнопка у overlay */
+.btn-detail {
+    /* Золотий фон */
+    background: #D4A843;
+    
+    /* Чорний текст для контрасту */
+    color: #0A0A0A;
+    
+    /* Внутрішній простір */
+    padding: 0.8rem 1.5rem;
+    
+    /* Закруглення */
+    border-radius: 4px;
+    
+    /* Без розірвання */
+    text-decoration: none;
+    
+    /* Шрифт */
+    font-weight: bold;
+    font-size: 0.9rem;
+    
+    /* ТРАНСФОРМАЦІЯ: великі букви */
+    text-transform: uppercase;
+    
+    /* TRANSITION: плавна зміна при наведенні */
+    transition: all 0.3s ease;
+    
+    /* Курсор */
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* Кнопка при наведенні */
+.btn-detail:hover {
+    /* Білий фон */
+    background: #FFFFFF;
+    
+    /* Чорний текст */
+    color: #000;
+    
+    /* Масштабування */
+    transform: scale(1.05);
+}
+
+/* ========================================
+   3.8 АДАПТИВНІСТЬ (RESPONSIVE DESIGN)
+   ======================================== */
+
+@media (max-width: 768px) {
+    /* Меньше колонок на планшетах */
+    .gallery-container {
+        gap: 20px;
+        max-width: 600px;
+        margin: 30px auto;
+    }
+    
+    /* МеньШа ширина картки */
+    .era-card {
+        width: 260px;
+    }
+    
+    /* Менша висота картинки */
+    .card-image {
+        height: 260px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Мобільна версія */
+    
+    /* Одна картка на рядок */
+    .gallery-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        margin-top: 20px;
+    }
+    
+    /* Максимальна ширина на мобільних */
+    .era-card {
+        width: 100%;
+        max-width: 320px;
+    }
+    
+    /* Менша висота */
+    .card-image {
+        height: 240px;
+    }
+    
+    /* Маленакий шрифт на мобільних */
+    .placeholder-img {
+        font-size: 16px;
+    }
+}
+
+/* ========================================
+   3.9 АНІМАЦІЯ ПОЯВИ (@keyframes)
+   ЗАВДАННЯ 2 | Крок 3 | Анімація плавної появи
+   ======================================== */
+
+/*
+   МЕТА: Створити кінематографічний ефект каскадної появи.
+   
+   ПРИНЦИП: Заголовок, опис та картки появляються з вертикальним зміщенням (translateY)
+   та поступовим збільшенням прозорості (opacity). Кожен елемент має свою затримку
+   для створення ефекту послідовної появи.
+   
+   КЛЮЧОВІ ПАРАМЕТРИ:
+   - 0%: opacity: 0 (невидимо) + translateY(-30px) (вище на 30px)
+   - 100%: opacity: 1 (видимо) + translateY(0) (на місці)
+   - Duration: 1s для плавності
+   - Easing: ease-out для природної деселерації
+   - Delays: 0s, 0.3s, 0.6s для каскадної появи
+*/
+
+/* ВИЗНАЧЕННЯ АНІМАЦІЇ */
+@keyframes fadeInDown {
+    /* Початкові стан: невидима і зміщена вгору на 30px */
+    0% {
+        /* Нульова прозорість (невидимо) */
+        opacity: 0;
+        
+        /* TRANSFORM: піднімання на 30px вгору (-Y напрямок) */
+        transform: translateY(-30px);
+    }
+    
+    /* Кінцевий стан: видима і на місці */
+    100% {
+        /* Повна прозорість (видимо) */
+        opacity: 1;
+        
+        /* TRANSFORM: повернення на нормальне місце */
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   ЗАСТОСУВАННЯ АНІМАЦІЇ ДО ЕЛЕМЕНТІВ
+   ======================================== */
+
+/* ЗАГОЛОВОК: Першим появляється заголовок */
+#eras-grid h1 {
+    /* animation: name duration easing delay fill-mode */
+    
+    /* fadeInDown: назва анімації */
+    /* 1s: тривалість анімації */
+    /* ease-out: плавне сповільнення на кінець */
+    animation: fadeInDown 1s ease-out;
+    
+    /* ПРИМІТКА: без затримки (0s), тому h1 з'являється одразу */
+}
+
+/* ОПИС: Другим (з затримкою 0.3s) */
+#eras-grid p {
+    /* Та ж анімація, але з затримкою 300ms */
+    
+    /* 0.3s: DELAY - чекаємо 300ms перед початком анімації */
+    /* both: fillMode - зберігає стан ДО (0%) і ПІСЛЯ (100%) анімації */
+    animation: fadeInDown 1s ease-out 0.3s both;
+}
+
+/* КАРТКИ: Третім (з затримкою 0.6s) */
+.gallery-container {
+    /* Найбільша затримка для каскадного ефекту */
+    
+    /* 0.6s: DELAY - чекаємо 600ms перед початком анімації карток */
+    /* both: зберігає стан до і після */
+    animation: fadeInDown 1s ease-out 0.6s both;
+}
+
+/* 
+   РЕЗУЛЬТАТ: Користувач бачить послідовну появу:
+   1. Заголовок "The Anthology" (0s - відразу)
+   2. Опис сторінки (0.3s затримка)
+   3. Сітка карток (0.6s затримка)
+   
+   Всього часу: 0.6s (затримка) + 1s (анімація) = 1.6s для повної появи
+*/
+
+/* ========================================
+   АДАПТИВНІ СТИЛІ ДЛЯ МОБІЛЬНИХ ЕКРАНІВ
+   ======================================== */
+
+/* Стилі виключно для мобільних екранів (менше 768px) */
+@media (max-width: 767px) {
+    /* Робимо меню вертикальним стовпчиком */
+    nav {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    nav a {
+        display: block;
+        border-bottom: 1px solid #333; /* Розділювач між пунктами */
+    }
+
+    /* Вимикаємо анімацію підняття картки (економимо ресурси телефону) */
+    .era-card:hover {
+        transform: none; 
+        box-shadow: none;
+    }
+    
+    /* Зменшуємо шрифти заголовків для малих екранів */
+    h1 {
+        font-size: 24px;
+    }
+}
+
+/* =========================================
+   Галерея (Masonry)
+   ========================================= */
+/* Контейнер галереї */
+.masonry-gallery {
+    column-count: 3;
+    column-gap: 15px;
+    padding: 20px 0;
+}
+
+/* Окремий елемент галереї */
+.gallery-item {
+    position: relative; /* Для позиціонування оверлею [cite: 358] */
+    margin-bottom: 15px;
+    break-inside: avoid;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: #1a1a1a;
+    /* Анімація появи при завантаженні [cite: 395] */
+    animation: fadeInDown 0.8s ease-out both; 
+}
+
+.gallery-item img {
+    width: 100%;
+    display: block;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Плавний зум [cite: 482] */
+}
+
+/* Оверлей з назвою ери [cite: 364-371] */
+.photo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Напівпрозорий фон [cite: 367] */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0; /* Приховано за замовчуванням [cite: 368] */
+    transition: opacity 0.4s ease; /* Плавна поява [cite: 371] */
+}
+
+.photo-overlay span {
+    color: var(--accent-gold, #D4A843);
+    font-family: var(--font-serif, serif);
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 1px solid var(--accent-gold);
+    padding: 10px 20px;
+    transform: translateY(20px);
+    transition: transform 0.4s ease;
+}
+
+/* Ефекти при наведенні (Hover)  */
+.gallery-item:hover img {
+    transform: scale(1.1); /* Збільшуємо фото [cite: 480] */
+}
+
+.gallery-item:hover .photo-overlay {
+    opacity: 1; /* Показуємо текст  */
+}
+
+.gallery-item:hover .photo-overlay span {
+    transform: translateY(0); /* Текст плавно піднімається */
+}
+
+/* Адаптація під мобільні пристрої [cite: 681] */
+@media (max-width: 768px) {
+    .masonry-gallery {
+        column-count: 1; /* Одна колонка на телефоні [cite: 711] */
+    }
+}
+
+/* =========================================
+   Таймлайн (Biography)
+   ========================================= */
+.timeline {
+    border-left: 2px solid var(--accent-gold, #D4A843);
+    padding-left: 30px;
+    margin-left: 20px;
+    margin-top: 40px;
+}
+
+.timeline-event {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+/* Золота точка на лінії */
+.timeline-event::before {
+    content: '';
+    position: absolute;
+    left: -37px; /* Зсув на лінію */
+    top: 0;
+    width: 12px;
+    height: 12px;
+    background-color: var(--bg-dark, #121212);
+    border: 2px solid var(--accent-gold, #D4A843);
+    border-radius: 50%;
+}
+
+.timeline-date {
+    font-weight: bold;
+    color: var(--accent-gold, #D4A843);
+    margin-bottom: 5px;
+}
+
+/* =========================================
+   Форма зв'язку (Connect)
+   ========================================= */
+.contact-wrapper {
+    max-width: 600px;
+    margin: 40px auto;
+    background-color: var(--bg-card, #1A1A1A);
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #333;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    margin-bottom: 8px;
+    color: #B0B0B0;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.vault-form input, .vault-form textarea {
+    background-color: #0A0A0A;
+    border: 1px solid #333;
+    color: #E0E0E0;
+    padding: 12px 15px;
+    border-radius: 4px;
+    font-family: inherit;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vault-form input:focus, .vault-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-gold, #D4A843);
+    box-shadow: 0 0 8px rgba(212, 168, 67, 0.2); /* Легке золоте світіння */
+}
+
+.btn-gold {
+    background-color: var(--accent-gold, #D4A843);
+    color: #000;
+    border: none;
+    padding: 12px 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.btn-gold:hover {
+    background-color: #e5b954;
+}
+
+/* =========================================
+   3D Flip-Картки Дискографії
+   ========================================= */
+/* =========================================
+   КВАДРАТНІ 3D-КАРТКИ ТА СТАБІЛЬНА СІТКА
+   ========================================= */
+
+/* 1. Контейнер сітки */
+.flip-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important; /* Рівно 2 колонки  */
+    gap: 20px !important;                             /* Відстань між картками */
+    width: 100% !important;
+    max-width: 800px !important;                      /* Оптимальна ширина для 2-х колонок */
+    margin: 40px auto !important;
+    perspective: 1000px;
+}
+
+/* 2. Налаштування квадратної картки */
+.flip-card {
+    background-color: transparent;
+    width: 100% !important;        /* Займає всю ширину колонки */
+    
+    /* МАГІЯ КВАДРАТА: */
+    aspect-ratio: 1 / 1 !important; /* Висота завжди дорівнює ширині */
+    
+    /* Видаляємо фіксовану висоту (height: 380px), щоб aspect-ratio працював */
+}
+
+/* 3. Внутрішня частина (анімація) */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s ease; /* Плавність з ЛР №2 [cite: 274, 306] */
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* 4. Сторони картки */
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;    /* Ховаємо зворотний бік [cite: 1229] */
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box !important; /* Рамки не збільшують розмір  */
+}
+
+/* Лицьова сторона */
+.flip-card-front {
+    background-size: cover;
+    background-position: center;
+    border: 1px solid rgba(212, 168, 67, 0.3);
+}
+
+/* Зворотна сторона */
+.flip-card-back {
+    background-color: #0A0A0A;
+    color: white;
+    transform: rotateY(180deg);
+    border: 1px solid #D4A843;
+    padding: 15px;
+}
+
+/* Адаптація для мобільних (1 колонка) [cite: 707, 735, 765] */
+@media (max-width: 600px) {
+    .flip-grid {
+        grid-template-columns: 1fr !important;
+        max-width: 300px !important;
+    }
+}
+
+/* 5. Напівпрозорий блок із назвою поверх фото */
+.album-info-overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    padding: 15px;
+}
+
+/* 6. Адаптація для мобільних пристроїв [cite: 707, 735, 765] */
+@media (max-width: 768px) {
+    .flip-grid {
+        grid-template-columns: 1fr !important; /* Одна колонка на телефонах [cite: 738] */
+        max-width: 350px !important;
+        gap: 20px !important;
+    }
+}
+
+/* Додаємо посилання на реальні обкладинки */
+.album-midnights {
+    background-image: url('https://upload.wikimedia.org/wikipedia/en/9/9f/Midnights_-_Taylor_Swift.png');
+}
+
+.album-1989 {
+    background-image: url('https://i.scdn.co/image/ab67616d0000b27352b2a3824413eefe9e33817a');
+}
+
+.album-reputation {
+    background-image: url('https://upload.wikimedia.org/wikipedia/en/f/f2/Taylor_Swift_-_Reputation.png');
+}
+
+.album-folklore {
+    background-image: url('https://upload.wikimedia.org/wikipedia/en/f/f8/Taylor_Swift_-_Folklore.png');
+}
+
+/* =========================================
+   Журнальна типографіка текстів
+   ========================================= */
+.poetic-quote {
+    font-family: var(--font-serif, "Georgia", serif);
+    font-size: 24px;
+    font-style: italic;
+    color: #E0E0E0;
+    border-left: 4px solid var(--accent-gold, #D4A843);
+    padding-left: 20px;
+    margin: 40px 0;
+    position: relative;
+}
+/* Журнальна буквиця (Drop Cap) для першої букви абзацу */
+.song-analysis p::first-letter {
+    float: left;
+    font-size: 60px;
+    line-height: 50px;
+    padding-right: 10px;
+    color: var(--accent-gold, #D4A843);
+    font-family: var(--font-serif, "Georgia", serif);
+}
+
+/* =========================================
+   Паралакс (Цитата)
+   ========================================= */
+.parallax-divider {
+    /* ВСТАВ СВОЄ ФОТО ОСЬ ТУТ: */
+    background-image: url('https://preview.redd.it/midnights-pc-wallpaper-v0-4v0ehlxi3ahb1.png?auto=webp&s=785b329321ff8a1e4b06e684fcad646acb20924e'); 
+    height: 300px;
+    background-attachment: fixed; /* Це створює ефект паралаксу */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 60px 0;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+}
+
+.parallax-divider h2 {
+    background-color: rgba(10, 10, 10, 0.7);
+    padding: 15px 30px;
+    border-radius: 4px;
+    color: var(--accent-gold, #D4A843);
+    font-family: var(--font-serif, "Georgia", serif);
+    font-style: italic;
+}
+
+/* =========================================
+   Кастомний Скроллбар (Global)
+   ========================================= */
+/* Кастомна смуга прокрутки */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #0A0A0A; /* Темний фон треку */
+}
+::-webkit-scrollbar-thumb {
+    background: #333; /* Колір самого повзунка */
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-gold, #D4A843); /* При наведенні стає золотим */
+}
+
+/* =========================================
+   Анімація для Фотогалереї
+   ========================================= */
+/* Анімація для окремих фото */
+@keyframes photoReveal {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.gallery-item {
+    animation: photoReveal 0.8s ease-out both;
+}
+
+/* Каскадний ефект для перших 5 фото */
+.gallery-item:nth-child(1) { animation-delay: 0.1s; }
+.gallery-item:nth-child(2) { animation-delay: 0.2s; }
+.gallery-item:nth-child(3) { animation-delay: 0.3s; }
+.gallery-item:nth-child(4) { animation-delay: 0.4s; }
+.gallery-item:nth-child(5) { animation-delay: 0.5s; }
+
+/* =========================================
+   Динамічний Таймлайн
+   ========================================= */
+@keyframes lineGrow {
+    from { height: 0; }
+    to { height: 100%; }
+}
+
+@keyframes eventSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.timeline {
+    position: relative;
+}
+
+/* Анімуємо саму лінію */
+.timeline::after {
+    content: '';
+    position: absolute;
+    left: -2px; /* Накладаємо на border-left */
+    top: 0;
+    width: 2px;
+    background: var(--accent-gold);
+    animation: lineGrow 2s ease-in-out forwards;
+}
+
+.timeline-event {
+    animation: eventSlideIn 0.6s ease-out both;
+}
+
+/* Каскадні затримки для ВСІХ 8 подій */
+.timeline-event:nth-child(1) { animation-delay: 0.3s; }
+.timeline-event:nth-child(2) { animation-delay: 0.6s; }
+.timeline-event:nth-child(3) { animation-delay: 0.9s; }
+.timeline-event:nth-child(4) { animation-delay: 1.2s; }
+.timeline-event:nth-child(5) { animation-delay: 1.5s; }
+.timeline-event:nth-child(6) { animation-delay: 1.8s; }
+.timeline-event:nth-child(7) { animation-delay: 2.1s; }
+.timeline-event:nth-child(8) { animation-delay: 2.4s; }
+
+/* =========================================
+   Ефекти для 3D-карток та Форми
+   ========================================= */
+/* Плавна поява форми */
+@keyframes formFadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.contact-wrapper {
+    animation: formFadeIn 1s ease-out both;
+}
+
+/* Пульсація золотої кнопки при наведенні */
+@keyframes goldPulse {
+    0% { box-shadow: 0 0 0 0 rgba(212, 168, 67, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(212, 168, 67, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(212, 168, 67, 0); }
+}
+
+.btn-gold:hover {
+    animation: goldPulse 1.5s infinite;
+    transform: scale(1.02); /* Легке збільшення, як у Кроці 5 ЛР №2 [cite: 480] */
+}
+
+/* Анімація фокусу полів введення */
+.vault-form input:focus, .vault-form textarea:focus {
+    transition: all 0.3s ease; /* Використовуємо transition з ЛР №2 [cite: 303] */
+    border-color: var(--accent-gold);
+    background-color: #121212;
+}
+
+/* =========================================
+   Глобальні стилі для основних блоків
+   ========================================= */
+main, aside, .contact-wrapper {
+    background-color: rgba(26, 26, 26, 0.9); /* 90% непрозорості */
+    backdrop-filter: blur(10px); /* Ефект матового скла (опціонально) */
+    border: 1px solid rgba(212, 168, 67, 0.1); /* Дуже тонка золота рамка */
+}
+

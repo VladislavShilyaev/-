@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<!-- 
+    ЗАВДАННЯ 1 | Крок 4 | Створення заготовок інших сторінок
+    ===============================================================================
+    Файл: discography.html (Дискографія)
+    
+    МЕТА: Сторінка дискографії з тим же header/footer і unique контентом
+    
+    КЛЮЧОВІ ЗМІНИ ВІД index.html:
+    1. class="active" переміщено на посилання Discography
+    2. Заголовок сторінки в <title>
+    3. Контент в <main> змінено на дискографію
+    4. Всі інші елементи залишаються невимінні (DRY - Don't Repeat Yourself)
+-->
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Eras Vault | Дискографія</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">The Eras Vault</div>
+        <nav>
+            <a href="index.html">Домашня</a>
+            <a href="discography.html" class="active">Дискографія</a>
+            <a href="about.html">Про Тейлор</a>
+            <a href="blog.html">Новини</a>
+            <a href="tours.html">Тури</a>
+            <a href="gallery.html">Галерея</a>
+            <a href="lyrics.html">Тексти</a>
+            <a href="contact.html">Зв'язок</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- 
+            ЗАВДАННЯ 2 | Крок 1 | HTML-розмітка карток епох
+            ===============================================================================
+            МЕТА: Створити сітку карточок для кожної ери Тейлор Свіфт.
+            
+            СТРУКТУРА:
+            1. #eras-grid — контейнер для всієї галереї
+            2. .gallery-container — гнучкий контейнер карток
+            3. .era-card — окремі картки для кожної ери
+            4. .card-image — область для зображення альбому з overlay ефектом
+            5. .overlay — текст та кнопка, які з'являються при наведенні
+            6. .card-body — інформація про еру (назва, рік)
+        -->
+        <section id="eras-grid">
+            <h1>Антологія</h1>
+            <p>Виберіть еру, щоб дізнатися більше про альбом.</p>
+            
+            <!-- КОНТЕЙНЕР З КАРТОЧКАМИ -->
+            <div class="flip-grid">
+                
+                <!-- КАРТКА #1: 1989 -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front album-1989">
+                            <div class="album-info-overlay">
+                                <h3>1989</h3>
+                                <p>2014 / 2023</p>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h4>Ключові треки:</h4>
+                            <ul>
+                                <li>Blank Space</li>
+                                <li>Style</li>
+                                <li>Shake It Off</li>
+                            </ul>
+                            <button class="btn-gold">Слухати</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- КАРТКА #2: Reputation -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front album-reputation">
+                            <div class="album-info-overlay">
+                                <h3>Reputation</h3>
+                                <p>2017</p>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h4>Ключові треки:</h4>
+                            <ul>
+                                <li>Look What You Made Me Do</li>
+                                <li>Delicate</li>
+                                <li>Don't Blame Me</li>
+                            </ul>
+                            <button class="btn-gold">Слухати</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- КАРТКА #3: Folklore -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front album-folklore">
+                            <div class="album-info-overlay">
+                                <h3>Folklore</h3>
+                                <p>2020</p>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h4>Ключові треки:</h4>
+                            <ul>
+                                <li>Cardigan</li>
+                                <li>Exile</li>
+                                <li>My Tears Ricochet</li>
+                            </ul>
+                            <button class="btn-gold">Слухати</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- КАРТКА #4: Midnights -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front album-midnights">
+                            <div class="album-info-overlay">
+                                <h3>Midnights</h3>
+                                <p>2022</p>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h4>Ключові треки:</h4>
+                            <ul>
+                                <li>Anti-Hero</li>
+                                <li>Lavender Haze</li>
+                                <li>Karma</li>
+                            </ul>
+                            <button class="btn-gold">Слухати</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 The Eras Vault | Створено для Свіфті</p>
+    </footer>
+</body>
+</html>
